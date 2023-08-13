@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeSketch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <script src="https://kit.fontawesome.com/689b6c56d2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="banner">
+    <h1 style="margin-left:20px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">CodeSketch</h1>
+    <p style="margin-left:20px;color:lightcyan;font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;font-style:italic"> Your very own front-end tinkerlab</p>
+</div>
+    <div class="container">
+        
+        <div class="left">
+            <label><i class="fa-brands fa-html5" style="color:orangered"></i>HTML</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-css3-alt" style="color:cornflowerblue"></i>CSS</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+            <label><i class="fa-brands fa-square-js" style="color:yellow"></i>JAVASCRIPT</label>
+            <textarea id="javascript-code" onkeyup="run()"></textarea>
+        </div>
+        <div class="right">
+            <label><i class="fa-solid fa-play"></i> Output</label>
+            <iframe id="output"></iframe>
+        </div>
+    </div>
+    <script>
+        function run (){
+            let htmlCode=document.getElementById("html-code").value;
+            let cssCode=document.getElementById("css-code").value;
+            let jscode=document.getElementById("javascript-code").value;
+            let output=document.getElementById("output");
+            output.contentDocument.body.innerHTML=htmlCode + "<style>"+cssCode+"</style>";
+            output.contentWindow.eval(jscode);
+            
+
+        }
+    </script>
+</body>
+</html>
